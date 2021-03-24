@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>simple piano</title>
+    <link rel="stylesheet" href="style.css">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <script src="node_modules/tone/build/Tone.js"></script>
+    
+</head>
+<body style="background: rgb(0, 0, 0);" onmousedown="">
+
+    <div class="flex-container" id="mainContainer" onmouseover="hovered()" onmouseleave="notHovered()">
+
+        <div id="hello" class="flex-whiteKey" onmousedown="attack('c4')" onmouseup="release()">
+            <div id="hello" class="flex-blackKey" onmousedown="attack('c#4')" onmouseup="release()">
+                <div class="flex-name white">C#</div>
+            </div>
+            <div class="flex-name black">C</div>
+        </div>
+        
+        <div id="hello" class="flex-whiteKey" onmousedown="attack('d4')" onmouseup="release()">
+            <div id="hello" class="flex-blackKey" onmousedown="attack('d#4')" onmouseup="release()">
+                <div class="flex-name white">D#</div>
+            </div>
+            <div class="flex-name black">D</div>
+        </div>
+        
+        <div id="hello" class="flex-whiteKey" onmousedown="attack('e4')" onmouseup="release()">
+            <div class="flex-name black">E</div>
+        </div>
+
+        <div id="hello" class="flex-whiteKey" onmousedown="attack('f4')" onmouseup="release()">
+            <div id="hello" class="flex-blackKey" onmousedown="attack('f#4')" onmouseup="release()">
+                <div class="flex-name white">F#</div>
+            </div>
+            <div class="flex-name black">F</div>
+        </div>
+        
+        <div id="hello" class="flex-whiteKey" onmousedown="attack('g4')" onmouseup="release()">
+            <div id="hello" class="flex-blackKey" onmousedown="attack('g#4')" onmouseup="release()">
+                <div class="flex-name white">G#</div>
+            </div>
+            <div class="flex-name black">G</div>
+        </div>
+        
+        <div id="hello" class="flex-whiteKey" onmousedown="attack('a4')" onmouseup="release()">
+            <div id="hello" class="flex-blackKey" onmousedown="attack('a#4')" onmouseup="release()">
+                <div class="flex-name white">A#</div>
+            </div>
+            <div class="flex-name black">A</div>
+        </div>
+        
+        <div id="hello" class="flex-whiteKey" onmousedown="attack('b4')" onmouseup="release()">
+            <div class="flex-name black">B</div>
+        </div>
+
+        <div id="hello" class="flex-whiteKey" onmousedown="attack('c5')" onmouseup="release()">
+            <div id="hello" class="flex-blackKey" onmousedown="attack('c#5')" onmouseup="release()">
+                <div class="flex-name white">C#</div>
+            </div>
+            <div class="flex-name black">C</div>
+        </div>
+        
+        <div id="hello" class="flex-whiteKey" onmousedown="attack('d5')" onmouseup="release()">
+            <div id="hello" class="flex-blackKey" onmousedown="attack('d#5')" onmouseup="release()">
+                <div class="flex-name white">D#</div>
+            </div>
+            <div class="flex-name black">D</div>
+        </div>
+        
+        <div id="hello" class="flex-whiteKey" onmousedown="attack('e5')" onmouseup="release()">
+            <div class="flex-name black">E</div>
+        </div>
+        <div id="hello" class="flex-whiteKey" onmousedown="attack('f5')" onmouseup="release()">
+            <div id="hello" class="flex-blackKey" onmousedown="attack('f#5')" onmouseup="release()">
+                <div class="flex-name white">F#</div>
+            </div>
+            <div class="flex-name black">F</div>
+        </div>
+        
+        <div id="hello" class="flex-whiteKey" onmousedown="attack('g5')" onmouseup="release()">
+            <div id="hello" class="flex-blackKey" onmousedown="attack('g#5')" onmouseup="release()">
+                <div class="flex-name white">G#</div>
+            </div>
+            <div class="flex-name black">G</div>
+        </div>
+        
+        <div id="hello" class="flex-whiteKey" onmousedown="attack('a5')" onmouseup="release()">
+            <div id="hello" class="flex-blackKey" onmousedown="attack('a#5')" onmouseup="release()">
+                <div class="flex-name white">A#</div>
+            </div>
+            <div class="flex-name black">A</div>
+        </div>
+        
+        <div id="hello" class="flex-whiteKey" onmousedown="attack('b5')" onmouseup="release()">
+            <div class="flex-name black">B</div>
+        </div>
+    </div>
+
+
+    <p>
+        We are using Node.js <span id="node-version"></span>,
+        Chromium <span id="chrome-version"></span>,
+        and Electron <span id="electron-version"></span>.
+    </p>
+    <script>
+    var hovering = false;
+    const synth = new Tone.PolySynth({volume: 2}).toDestination();
+    const now = Tone.now()
+    var mainDiv = document.getElementById("mainContainer");
+document.addEventListener('keydown', function(event) {
+    switch(event.code)
+    {
+        case 'KeyA': attack('c4');
+        break;
+        case 'KeyW': attack('c#4');
+        break;
+        case 'KeyS': attack('d4');
+        break;
+        case 'KeyE': attack('d#4');
+        break;
+        case 'KeyD': attack('e4');
+        break;
+        case 'KeyF': attack('f4');
+        break;
+        case 'KeyT': attack('f#4');
+        break;
+        case 'KeyG': attack('g4');
+        break;
+        case 'KeyY': attack('g#4');
+        break;
+        case 'KeyH': attack('a4');
+        break;
+        case 'KeyU': attack('a#4');
+        break;
+        case 'KeyJ': attack('b4');
+        break;
+        case 'KeyK': attack('c5');
+        break;
+        case 'KeyO': attack('c#5');
+        break;
+        case 'KeyL': attack('d5');
+        break;
+        case 'KeyP': attack('d#5');
+        break;
+        case 'Semicolon': attack('e5');
+        break;
+        case 'KeyA': attack('f5');
+        break;
+        case 'KeyA': attack('f#5');
+        break;
+        case 'KeyA': attack('g5');
+        break;
+        case 'KeyA': attack('g#5');
+        break;
+        case 'KeyA': attack('a5');
+        break;
+        case 'KeyA': attack('a#5');
+        break;
+        case 'KeyA': attack('b5');
+        break;
+        default: return;
+    }
+});
+
+    function playSound()
+    {
+        
+        const synth = new Tone.MembraneSynth({volume: 0.5}).toDestination();
+        const now = Tone.now()
+        // trigger the attack immediately
+        synth.triggerAttack("C2", "8n")
+        // wait one second before triggering the release
+        synth.triggerRelease(now + 1)
+    }
+    function attack(note)
+    {
+            synth.triggerAttackRelease(note, "16n");
+            event.stopPropagation();
+            console.log("Attack");
+
+    }
+    function release()
+    {
+                    synth.triggerRelease(now);
+                    console.log("release");
+    }
+
+    function hovered()
+    {
+        hovering = true;
+        console.log("hovering");
+    }
+
+    function notHovered()
+    {
+        hovering = false;
+        release();
+        console.log("not hovering");
+    }
+
+        
+    </script>
+
+</body>
+</html>
